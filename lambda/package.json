@@ -1,0 +1,49 @@
+{
+  "name": "gympie-pres",
+  "version": "0.1.0",
+  "description": "Gympie Prebyterian Alexa Skill",
+  "keywords": [
+    "alexa",
+    "amazon",
+    "echo",
+    "skills",
+    "airtable"
+  ],
+  "homepage": "https://github.com/funkydan2/gp-alexa-skill#readme",
+  "bugs": {
+    "url": "https://github.com/funkydan2/gp-alexa-skill/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/funkydan2/gp-alexa-skill.git"
+  },
+  "license": "MIT",
+  "author": "Daniel Saunders",
+  "type": "commonjs",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha",
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "airtable": "^0.12.2",
+    "amazon-date-parser": "^0.3.0",
+    "ask-sdk": "^2.14.0",
+    "ask-sdk-core": "^2.14.0",
+    "chai": "^4.3.8",
+    "chai-as-promised": "^7.1.1",
+    "got": "^14.6.6",
+    "lodash": "^4.18.1",
+    "mocha": "^11.7.5",
+    "node-podcast-parser": "^2.3.0"
+  },
+  "engines": {
+    "node": "25.x"
+  },
+  "devDependencies": {
+    "ask-sdk-local-debug": "^1.1.0"
+  }
+}
