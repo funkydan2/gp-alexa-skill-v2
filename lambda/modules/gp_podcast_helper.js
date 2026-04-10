@@ -2,6 +2,8 @@
 const parsePodcast = require("node-podcast-parser");
 const _ = require("lodash");
 const URI = "https://gympiepresbyterian.org.au/sermons/index.xml";
+const intlDateFormat = new Intl.DateTimeFormat("en-AU", 
+                        {timeZone: "Australia/Brisbane", dateStyle: "long"});
 
 async function getPodcast() {
   const { default: got } = await import("got");
@@ -60,7 +62,7 @@ GPPodcastHelper.prototype.getDate = function(episode) {
       if (_.isUndefined(episode)) {
         episode = 0;
       }
-      return pod.episodes[episode].published;
+      return intlDateFormat.format(pod.episodes[episode].published);
     })
     .catch(function(error) {
       console.log("Failed", error);
@@ -80,8 +82,9 @@ GPPodcastHelper.prototype.getEpisode = function(episode) {
         "This is a sermon from Gympie Presbyterian Church called " +
         pod.episodes[episode].title +
         " it was recorded on " +
-        pod.episodes[episode].published.toDateString();
-      //Alexa must download the MP3 file over https
+        intlDateFormat.format(pod.episodes[episode].published);
+      
+        //Alexa must download the MP3 file over https
       const mp3URL = pod.episodes[episode].enclosure.url.replace(
         "http://",
         "https://"
